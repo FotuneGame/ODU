@@ -13,17 +13,18 @@ export function readInput() {
     throw new Error('Для вычисления точного интеграла нужен отрезок [0, π/2]');
   }
   const grids = quadrature.steps.map((step) => makeGrid(quadrature.interval, step));
-  const problems = [[scalar, 1, 4], [system, 3, 3]];
+  const scalarProblem = { interval: [0, scalar.end], initial: scalar.initial, step: scalar.step };
+  const problems = [[scalarProblem, 1, 4], [system, 3, 3]];
   for (const [{ interval, step, initial }, size, minCount] of problems) {
     if (makeGrid(interval, step).count < minCount || initial.length !== size ||
         !initial.every(Number.isFinite)) {
       throw new Error('Недопустимые начальные данные задачи Коши');
     }
   }
-  if (scalar.interval[0] <= -1 || !Number.isFinite(reference.tolerance) ||
-      reference.tolerance <= 0 || !Number.isInteger(reference.maxRefinements) ||
+  if (!Number.isFinite(reference.tolerance) || reference.tolerance <= 0 ||
+      !Number.isInteger(reference.maxRefinements) ||
       reference.maxRefinements < 1) {
-    throw new Error('Недопустимый отрезок скалярного ДУ или параметры опорного расчёта');
+    throw new Error('Недопустимые параметры опорного расчёта');
   }
-  return { data, grids };
+  return { data, grids, scalarProblem };
 }

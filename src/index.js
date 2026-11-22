@@ -5,12 +5,12 @@ import { quadrature, euler, eulerCorrected, rk3, rk4, rk3Tableau, adams3, adams4
 import { compareOde, oneStep } from './solve.js';
 import { generateChart } from './generateChart.js';
 
-const { data: input, grids } = readInput();
+const { data: input, grids, scalarProblem } = readInput();
 const integration = grids.map((grid) => quadrature(integrand, grid, exactIntegral));
 const eulerMethods = { euler: oneStep(euler), corrected: oneStep(eulerCorrected) };
 const scalarMethods = { ...eulerMethods, rk3: oneStep(rk3), adams3, adams4 };
 const systemMethods = { ...eulerMethods, adams3, rk4: oneStep(rk4) };
-const scalar = compareOde(scalarRhs, input.scalar, scalarMethods, input.reference);
+const scalar = compareOde(scalarRhs, scalarProblem, scalarMethods, input.reference);
 const system = compareOde(systemRhs, input.system, systemMethods, input.reference);
 
 scalar.grids.forEach(({ methods }, i) => {
@@ -38,11 +38,12 @@ console.table(integration.flatMap(({ step, intervals, methods: rows }) =>
     метод: methods[id].name, h: step, N: intervals, значение: value, 'абс.': absolute, 'отн.': relative,
   }))));
 
-function printOde(title, result) {
+function printOde(title, result, referenceIndex) {
   console.log(title);
   console.log('Опорное РК4:', result.referenceInfo);
   for (const { h, count, x, reference, methods: rows, adams3VsRk3 } of result.grids) {
-    console.log(`h = ${h}, N = ${count}, опорное значение при x = ${x.at(-1)}:`, reference.at(-1));
+    console.log(`h = ${h}, N = ${count}, опорное значение при x = ${x.at(referenceIndex)}:`,
+      reference.at(referenceIndex));
     console.table(Object.entries(rows).map(([id, row]) => ({
       метод: methods[id].name,
       'правых частей': row.evaluations,
@@ -55,8 +56,8 @@ function printOde(title, result) {
   }
 }
 
-printOde('=== СКАЛЯРНОЕ ДУ ===', scalar);
-printOde('=== СИСТЕМА ДУ ===', system);
+printOde('=== СКАЛЯРНОЕ ДУ ===', scalar, 0);
+printOde('=== СИСТЕМА ДУ ===', system, -1);
 
 const output = new URL('../output/', import.meta.url);
 mkdirSync(output, { recursive: true });
@@ -87,6 +88,7 @@ write('system_solution.svg', generateChart('Компоненты решения 
   ['y₁', 'y₂', 'y₃'].map((name, i) => plotSeries(v, v.methods.rk4.values.map((y) => y[i]), {
     name, color: ['#2563eb', '#dc2626', '#16a34a'][i], dash: ['', '7 3', '3 3'][i],
   }))));
-write('system_absolute.svg', generateChart('Погрешность решения системы', '‖Y − Yоп‖∞',
+write('system_absolute.svg', generateChart('Погрешность решения системы',
+  '‖Y − Y<tspan baseline-shift="sub" font-size="11">оп</tspan>‖<tspan baseline-shift="sub" font-size="11">∞</tspan>',
   errors(v, 'absolute'), true));
 write('results.json', JSON.stringify({ input, exactIntegral, integration, rk3Tableau, scalar, system }, null, 2) + '\n');
