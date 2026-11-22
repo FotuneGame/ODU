@@ -1,0 +1,22 @@
+{
+  "variant": 3,
+  "K": 25,
+  "quadrature": {
+    "interval": [0, 1.5707963267948966],
+    "steps": [0.3141592653589793, 0.06283185307179587]
+  },
+  "scalar": {
+    "interval": [0, 3],
+    "initial": [0.2],
+    "step": 0.1
+  },
+  "system": {
+    "interval": [0, 3],
+    "initial": [-1, 0.3, 0.45],
+    "step": 0.1
+  },
+  "reference": {
+    "tolerance": 1e-12,
+    "maxRefinements": 12
+  }
+}
