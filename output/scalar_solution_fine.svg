@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="319" viewBox="0 0 900 319">
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#222" font-size="16">
+<text x="450" y="28" text-anchor="middle" font-size="22" font-weight="bold">Решение скалярного ДУ при h = 0,05</text>
+<g stroke="#ddd"><style>text { stroke: none; }</style>
+<path d="M86 49V226"/>
+    <text x="86" y="246" text-anchor="middle">0.0</text>
+<path d="M244.40000000000003 49V226"/>
+    <text x="244.40000000000003" y="246" text-anchor="middle">0.2</text>
+<path d="M402.80000000000007 49V226"/>
+    <text x="402.80000000000007" y="246" text-anchor="middle">0.4</text>
+<path d="M561.1999999999999 49V226"/>
+    <text x="561.1999999999999" y="246" text-anchor="middle">0.6</text>
+<path d="M719.6000000000001 49V226"/>
+    <text x="719.6000000000001" y="246" text-anchor="middle">0.8</text>
+<path d="M878 49V226"/>
+    <text x="878" y="246" text-anchor="middle">1.0</text>
+<path d="M86 226H878"/>
+    <text x="77" y="231" text-anchor="end">0.2</text>
+<path d="M86 190.60000000000002H878"/>
+    <text x="77" y="195.60000000000002" text-anchor="end">0.3</text>
+<path d="M86 155.19999999999996H878"/>
+    <text x="77" y="160.19999999999996" text-anchor="end">0.4</text>
+<path d="M86 119.79999999999998H878"/>
+    <text x="77" y="124.79999999999998" text-anchor="end">0.5</text>
+<path d="M86 84.39999999999999H878"/>
+    <text x="77" y="89.39999999999999" text-anchor="end">0.6</text>
+<path d="M86 49H878"/>
+    <text x="77" y="54" text-anchor="end">0.7</text>
+</g>
+<path d="M86 49V226H878" fill="none" stroke="#444"/>
+<text x="482" y="265" text-anchor="middle">x</text>
+<text x="24" y="138" text-anchor="middle" transform="rotate(-90 24 138)">y(x)</text>
+<path d="M86,226L125.6,209.181L165.2,193.408L204.8,178.665L244.4,164.936L284,152.202L323.6,140.442L363.2,129.632L402.8,119.748L442.4,110.761L482,102.643L521.6,95.364L561.2,88.893L600.8,83.198L640.4,78.247L680,74.007L719.6,70.446L759.2,67.531L798.8,65.231L838.4,63.513L878,62.348" fill="none" stroke="#222" stroke-width="2.6"/>
+<path d="M86,226L125.6,208.654L165.2,192.367L204.8,177.126L244.4,162.919L284,149.729L323.6,137.537L363.2,126.321L402.8,116.057L442.4,106.719L482,98.279L521.6,90.707L561.2,83.971L600.8,78.04L640.4,72.88L680,68.457L719.6,64.739L759.2,61.691L798.8,59.281L838.4,57.474L878,56.239" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+<path d="M86,226L125.6,209.183L165.2,193.412L204.8,178.672L244.4,164.946L284,152.216L323.6,140.459L363.2,129.652L402.8,119.771L442.4,110.787L482,102.672L521.6,95.395L561.2,88.926L600.8,83.234L640.4,78.284L680,74.046L719.6,70.486L759.2,67.573L798.8,65.273L838.4,63.557L878,62.392" fill="none" stroke="#d97706" stroke-width="2.6" stroke-dasharray="7 3"/>
+<path d="M86,226L125.6,209.181L165.2,193.407L204.8,178.664L244.4,164.936L284,152.202L323.6,140.442L363.2,129.632L402.8,119.747L442.4,110.76L482,102.642L521.6,95.363L561.2,88.892L600.8,83.197L640.4,78.246L680,74.006L719.6,70.445L759.2,67.53L798.8,65.23L838.4,63.512L878,62.347" fill="none" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="8 3"/>
+<path d="M86,226L125.6,209.181L165.2,193.407L204.8,178.665L244.4,164.937L284,152.204L323.6,140.445L363.2,129.636L402.8,119.752L442.4,110.766L482,102.648L521.6,95.37L561.2,88.899L600.8,83.204L640.4,78.253L680,74.013L719.6,70.451L759.2,67.536L798.8,65.236L838.4,63.518L878,62.352" fill="none" stroke="#7c3aed" stroke-width="2.6" stroke-dasharray="3 3"/>
+<path d="M86,226L125.6,209.181L165.2,193.408L204.8,178.665L244.4,164.936L284,152.202L323.6,140.442L363.2,129.633L402.8,119.748L442.4,110.761L482,102.643L521.6,95.364L561.2,88.893L600.8,83.198L640.4,78.247L680,74.007L719.6,70.445L759.2,67.531L798.8,65.23L838.4,63.513L878,62.347" fill="none" stroke="#0891b2" stroke-width="2.6" stroke-dasharray="11 3"/>
+<path d="M98 283h28" stroke="#222" stroke-width="2.6"/>
+    <text x="135" y="288">Опорное РК4</text>
+<path d="M356 283h28" stroke="#dc2626" stroke-width="2.6"/>
+    <text x="393" y="288">Эйлер</text>
+<path d="M614 283h28" stroke="#d97706" stroke-width="2.6" stroke-dasharray="7 3"/>
+    <text x="651" y="288">Эйлер с коррекцией</text>
+<path d="M98 305h28" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="8 3"/>
+    <text x="135" y="310">Рунге–Кутта 3</text>
+<path d="M356 305h28" stroke="#7c3aed" stroke-width="2.6" stroke-dasharray="3 3"/>
+    <text x="393" y="310">Адамс 3</text>
+<path d="M614 305h28" stroke="#0891b2" stroke-width="2.6" stroke-dasharray="11 3"/>
+    <text x="651" y="310">Адамс 4</text>
+</g>
+</svg>

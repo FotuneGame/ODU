@@ -74,21 +74,33 @@ function errors(grid, key) {
   return Object.entries(grid.methods).map(([id, row]) => plotSeries(grid, row[key], methods[id]));
 }
 
-const s = scalar.grids[0];
-const v = system.grids[0];
-write('scalar_solution.svg', generateChart('Решение скалярного ДУ', 'y(x)', [
-  plotSeries(s, s.reference.map(([y]) => y), methods.reference),
-  ...Object.entries(s.methods).map(([id, row]) => plotSeries(s, row.values.map(([y]) => y), methods[id])),
-]));
-write('scalar_absolute.svg', generateChart('Абсолютная погрешность скалярного ДУ', 'Абс. погрешность',
-  errors(s, 'absolute'), true));
-write('scalar_relative.svg', generateChart('Относительная погрешность скалярного ДУ', 'Отн. погрешность',
-  errors(s, 'relative'), true));
-write('system_solution.svg', generateChart('Компоненты решения системы методом РК4', 'yᵢ(x)',
-  ['y₁', 'y₂', 'y₃'].map((name, i) => plotSeries(v, v.methods.rk4.values.map((y) => y[i]), {
-    name, color: ['#2563eb', '#dc2626', '#16a34a'][i], dash: ['', '7 3', '3 3'][i],
-  }))));
-write('system_absolute.svg', generateChart('Погрешность решения системы',
-  '‖Y − Y<tspan baseline-shift="sub" font-size="11">оп</tspan>‖<tspan baseline-shift="sub" font-size="11">∞</tspan>',
-  errors(v, 'absolute'), true));
+function writeOdeCharts(scalarGrid, systemGrid, suffix = '') {
+  const stepLabel = (h) => suffix ? ` при h = ${h.toLocaleString('ru-RU', { maximumSignificantDigits: 12 })}` : '';
+  const scalarStep = stepLabel(scalarGrid.h);
+  const systemStep = stepLabel(systemGrid.h);
+
+  const scalarSeries = Object.entries(scalarGrid.methods).map(([id, row]) =>
+    plotSeries(scalarGrid, row.values.map(([y]) => y), methods[id]));
+  write(`scalar_solution${suffix}.svg`, generateChart(`Решение скалярного ДУ${scalarStep}`, 'y(x)', [
+    plotSeries(scalarGrid, scalarGrid.reference.map(([y]) => y), methods.reference),
+    ...scalarSeries,
+  ]));
+  write(`scalar_absolute${suffix}.svg`, generateChart(`Абсолютная погрешность скалярного ДУ${scalarStep}`,
+    'Абс. погрешность', errors(scalarGrid, 'absolute'), true));
+  write(`scalar_relative${suffix}.svg`, generateChart(`Относительная погрешность скалярного ДУ${scalarStep}`,
+    'Отн. погрешность', errors(scalarGrid, 'relative'), true));
+
+  const components = ['y₁', 'y₂', 'y₃'].map((name, i) =>
+    plotSeries(systemGrid, systemGrid.methods.rk4.values.map((y) => y[i]), {
+      name, color: ['#2563eb', '#dc2626', '#16a34a'][i], dash: ['', '7 3', '3 3'][i],
+    }));
+  write(`system_solution${suffix}.svg`, generateChart(`Компоненты решения системы методом РК4${systemStep}`,
+    'yᵢ(x)', components));
+  write(`system_absolute${suffix}.svg`, generateChart(`Погрешность решения системы${systemStep}`,
+    '‖Y − Y<tspan baseline-shift="sub" font-size="11">оп</tspan>‖<tspan baseline-shift="sub" font-size="11">∞</tspan>',
+    errors(systemGrid, 'absolute'), true));
+}
+
+writeOdeCharts(scalar.grids[0], system.grids[0]);
+writeOdeCharts(scalar.grids[1], system.grids[1], '_fine');
 write('results.json', JSON.stringify({ input, exactIntegral, integration, rk3Tableau, scalar, system }, null, 2) + '\n');

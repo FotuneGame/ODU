@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="319" viewBox="0 0 900 319">
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial, sans-serif" fill="#222" font-size="16">
+<text x="450" y="28" text-anchor="middle" font-size="22" font-weight="bold">Относительная погрешность скалярного ДУ при h = 0,05</text>
+<g stroke="#ddd"><style>text { stroke: none; }</style>
+<path d="M86 49V226"/>
+    <text x="86" y="246" text-anchor="middle">0.0</text>
+<path d="M244.40000000000003 49V226"/>
+    <text x="244.40000000000003" y="246" text-anchor="middle">0.2</text>
+<path d="M402.80000000000007 49V226"/>
+    <text x="402.80000000000007" y="246" text-anchor="middle">0.4</text>
+<path d="M561.1999999999999 49V226"/>
+    <text x="561.1999999999999" y="246" text-anchor="middle">0.6</text>
+<path d="M719.6000000000001 49V226"/>
+    <text x="719.6000000000001" y="246" text-anchor="middle">0.8</text>
+<path d="M878 49V226"/>
+    <text x="878" y="246" text-anchor="middle">1.0</text>
+<path d="M86 226H878"/>
+    <text x="77" y="231" text-anchor="end">1e-9</text>
+<path d="M86 203.87500000000003H878"/>
+    <text x="77" y="208.87500000000003" text-anchor="end">1e-8</text>
+<path d="M86 181.75H878"/>
+    <text x="77" y="186.75" text-anchor="end">1e-7</text>
+<path d="M86 159.625H878"/>
+    <text x="77" y="164.625" text-anchor="end">1e-6</text>
+<path d="M86 137.5H878"/>
+    <text x="77" y="142.5" text-anchor="end">1e-5</text>
+<path d="M86 115.37499999999997H878"/>
+    <text x="77" y="120.37499999999997" text-anchor="end">1e-4</text>
+<path d="M86 93.25H878"/>
+    <text x="77" y="98.25" text-anchor="end">1e-3</text>
+<path d="M86 71.12499999999999H878"/>
+    <text x="77" y="76.12499999999999" text-anchor="end">1e-2</text>
+<path d="M86 49H878"/>
+    <text x="77" y="54" text-anchor="end">1e-1</text>
+</g>
+<path d="M86 49V226H878" fill="none" stroke="#444"/>
+<text x="482" y="265" text-anchor="middle">x</text>
+<text x="24" y="138" text-anchor="middle" transform="rotate(-90 24 138)">Отн. погрешность</text>
+<path d="M125.6,76.008L165.2,71.06L204.8,68.587L244.4,67.043L284,65.969L323.6,65.172L363.2,64.557L402.8,64.067L442.4,63.67L482,63.343L521.6,63.072L561.2,62.844L600.8,62.653L640.4,62.492L680,62.355L719.6,62.239L759.2,62.141L798.8,62.057L838.4,61.985L878,61.923" fill="none" stroke="#dc2626" stroke-width="2.6"/>
+<path d="M125.6,128.691L165.2,122.844L204.8,119.646L244.4,117.504L284,115.93L323.6,114.712L363.2,113.737L402.8,112.94L442.4,112.279L482,111.726L521.6,111.26L561.2,110.867L600.8,110.535L640.4,110.255L680,110.021L719.6,109.827L759.2,109.667L798.8,109.539L838.4,109.437L878,109.361" fill="none" stroke="#d97706" stroke-width="2.6" stroke-dasharray="7 3"/>
+<path d="M125.6,157.872L165.2,153.109L204.8,150.812L244.4,149.436L284,148.523L323.6,147.881L363.2,147.416L402.8,147.073L442.4,146.819L482,146.632L521.6,146.499L561.2,146.409L600.8,146.354L640.4,146.328L680,146.327L719.6,146.346L759.2,146.384L798.8,146.436L838.4,146.501L878,146.577" fill="none" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="8 3"/>
+<path d="M125.6,157.872L165.2,153.109L204.8,145.826L244.4,137.736L284,133.889L323.6,131.578L363.2,130.078L402.8,129.088L442.4,128.452L482,128.08L521.6,127.915L561.2,127.921L600.8,128.072L640.4,128.35L680,128.744L719.6,129.246L759.2,129.853L798.8,130.565L838.4,131.384L878,132.319" fill="none" stroke="#7c3aed" stroke-width="2.6" stroke-dasharray="3 3"/>
+<path d="M125.6,205.281L165.2,199.704L204.8,196.755L244.4,161.707L284,159.861L323.6,161.333L363.2,166.091L402.8,182.172L442.4,169.681L482,161.831L521.6,157.76L561.2,155.13L600.8,153.282L640.4,151.932L680,150.927L719.6,150.177L759.2,149.624L798.8,149.226L838.4,148.954L878,148.786" fill="none" stroke="#0891b2" stroke-width="2.6" stroke-dasharray="11 3"/>
+<path d="M98 283h28" stroke="#dc2626" stroke-width="2.6"/>
+    <text x="135" y="288">Эйлер</text>
+<path d="M356 283h28" stroke="#d97706" stroke-width="2.6" stroke-dasharray="7 3"/>
+    <text x="393" y="288">Эйлер с коррекцией</text>
+<path d="M614 283h28" stroke="#16a34a" stroke-width="2.6" stroke-dasharray="8 3"/>
+    <text x="651" y="288">Рунге–Кутта 3</text>
+<path d="M98 305h28" stroke="#7c3aed" stroke-width="2.6" stroke-dasharray="3 3"/>
+    <text x="135" y="310">Адамс 3</text>
+<path d="M356 305h28" stroke="#0891b2" stroke-width="2.6" stroke-dasharray="11 3"/>
+    <text x="393" y="310">Адамс 4</text>
+</g>
+</svg>
